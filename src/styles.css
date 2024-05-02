@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+.chatbox {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+}
+
+.messages-item {
+  max-width: 60.6%;
+  width: fit-content;
+}
+
+.messages-item-operator {
+  margin-left: auto;
+}
+
+.messages-item-visitor {
+  margin-right: auto;
+}
+
+.messages-item {
+  margin-top: 10px;
+  background: #e0e0e0;
+  padding: 8px 12px;
+  max-width: 70%;
+}
+
+.messages-item-visitor,
+.messages-item-typing {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.messages-item-operator {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background: var(--primary);
+  color: white;
+}

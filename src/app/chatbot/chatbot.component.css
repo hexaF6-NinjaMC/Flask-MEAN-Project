@@ -1,0 +1,157 @@
+/* ==============CHATBOX============== */
+.chatbox {
+  --primaryGradient: linear-gradient(93.12deg, #1b2a98 0.52%, #31acac 100%);
+  --secondaryGradient: linear-gradient(
+    268.91deg,
+    #1b2a98 -2.14%,
+    #31acac 99.69%
+  );
+  --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+  --primary: #3f7ec7;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+/* CONTENT IS CLOSED */
+.chatbox-support {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 350px;
+  z-index: -123456;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+@media (prefers-color-scheme: light) {
+  .chatbox-support {
+    background: #fff8f8;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .chatbox-support {
+    background: #1a1919;
+  }
+
+  .chatbox-button button {
+    filter: invert(95%) hue-rotate(180deg);
+  }
+}
+
+/* CONTENT IS OPENED */
+.chatbox-active {
+  transform: translateY(-40px);
+  z-index: 123456;
+  opacity: 1;
+}
+
+/* BUTTON */
+.chatbox-button {
+  text-align: right;
+}
+
+.send-button {
+  padding: 6px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* MESSAGES */
+.chatbox-messages {
+  margin-top: auto;
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column-reverse;
+}
+
+/* FOOTER */
+.chatbox-footer {
+  position: sticky;
+  bottom: 0;
+}
+
+.chatbox-support {
+  height: 450px;
+  width: 350px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+/* HEADER */
+.chatbox-header {
+  background: var(--primaryGradient);
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: var(--primaryBoxShadow);
+}
+
+.chatbox-image-header {
+  margin-right: 10px;
+}
+
+.chatbox-heading-header {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.chatbox-description-header {
+  font-size: 0.9rem;
+  color: white;
+}
+
+/* Messages */
+.chatbox-messages {
+  padding: 0 20px;
+}
+
+/* FOOTER */
+.chatbox-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  background: var(--secondaryGradient);
+  box-shadow: var(--secondaryBoxShadow);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-top: 20px;
+}
+
+.chatbox-footer input {
+  width: 80%;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 30px;
+  text-align: left;
+}
+
+.chatbox-send-footer {
+  color: white;
+}
+
+.chatbox-button button,
+.chatbox-button button:focus,
+.chatbox-button button:visited {
+  padding: 10px;
+  background: white;
+  border: none;
+  outline: none;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
