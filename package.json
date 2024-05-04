@@ -10,9 +10,10 @@
     "start": "node server.js",
     "start-dev": "npm run lint && npm run compile && nodemon --exec ng serve",
     "build": "ng build",
-    "prod": "ng build --configuration production --optimization",
+    "prod": "ng build --configuration=production --optimization",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "install-prod": "npm ci --omit=dev && npm install"
   },
   "private": true,
   "dependencies": {
@@ -36,7 +37,6 @@
     "@angular/compiler-cli": "^17.3.0",
     "@eslint/js": "^9.1.1",
     "@types/jasmine": "~5.1.0",
-    "angular-cli-ghpages": "^2.0.0-beta.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",

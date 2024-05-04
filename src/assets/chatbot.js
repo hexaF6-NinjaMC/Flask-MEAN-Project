@@ -1,4 +1,4 @@
-class Chatbox {
+class Chat {
   constructor() {
     this.args = {
       openButton: document.querySelector(".chatbox-button"),
@@ -83,5 +83,5 @@ class Chatbox {
   }
 }
 
-const chatbox = new Chatbox();
-chatbox.display();
+const chatbot = new Chat();
+chatbot.display();

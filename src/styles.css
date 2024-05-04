@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    min-height: 100vh;
+    background-color: #191717;
+    filter: invert(100%) hue-rotate(180deg);
+  }
+}
+
 .chatbox {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
@@ -20,7 +29,7 @@
 
 .messages-item {
   margin-top: 10px;
-  background: #e0e0e0;
+  background-color: #e0e0e0;
   padding: 8px 12px;
   max-width: 70%;
 }
