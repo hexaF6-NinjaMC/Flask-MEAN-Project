@@ -48,3 +48,31 @@
   background: var(--primary);
   color: white;
 }
+
+html,
+body {
+  min-height: 100vh;
+}
+
+.m-reset {
+  margin: 0 !important;
+}
+
+.navbar-nav > li > button {
+  border: none !important;
+  background-color: transparent;
+}
+
+.navbar-collapse.collapse {
+  display: flex !important;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.navbar-collapse.collapse > :not(:last-child) {
+  position: relative;
+}
+
+.navbar-collapse.collapse > :last-child {
+  margin-left: auto;
+}

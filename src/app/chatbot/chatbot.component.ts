@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-chatbot',
+  selector: 'video-jokebot-chatbot',
   templateUrl: './chatbot.component.html',
   styleUrl: './chatbot.component.css',
 })

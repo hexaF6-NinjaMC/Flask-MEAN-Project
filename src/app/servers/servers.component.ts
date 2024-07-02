@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-servers',
+  selector: 'video-jokebot-servers',
   templateUrl: './servers.component.html',
   styleUrl: './servers.component.css',
 })

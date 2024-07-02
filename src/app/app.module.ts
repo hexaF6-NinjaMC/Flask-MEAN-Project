@@ -4,15 +4,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { Routes, RouterModule } from '@angular/router';
 import { ChatbotComponent } from './chatbot/chatbot.component';
-
-const appRoutes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'about', component: AppComponent },
-  { path: 'contact', component: AppComponent },
-  { path: 'test', component: AppComponent },
-];
+import { VideosComponent } from './videos/videos.component';
+import { VideoComponent } from './videos/video/video.component';
+import { VideoCommentsComponent } from './videos/video-comments/video-comments.component';
+import { VideoDetailComponent } from './videos/video-detail/video-detail.component';
+import { HeaderComponent } from './header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,14 @@ const appRoutes: Routes = [
     ServerComponent,
     ServersComponent,
     ChatbotComponent,
+    VideosComponent,
+    VideoComponent,
+    VideoCommentsComponent,
+    VideoDetailComponent,
+    HeaderComponent,
   ],
-  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
-  providers: [],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

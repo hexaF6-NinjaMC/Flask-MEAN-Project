@@ -71,7 +71,7 @@ class Chat {
     this.messages.slice().forEach((item) => {
       let convo_html = document.createElement("div");
       if (item.name === "Algee") {
-        convo_html.textContent = `Algee: ${item.message}`;
+        convo_html.insertAdjacentHTML("beforeend", `Algee: ${item.message}`);
         convo_html.classList.add("messages-item", "messages-item-visitor");
       } else {
         convo_html.textContent = `You: ${item.message}`;
