@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { ServerComponent } from './server/server.component';
-import { ServersComponent } from './servers/servers.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { VideosComponent } from './videos/videos.component';
 import { VideoComponent } from './videos/video/video.component';
@@ -12,18 +10,32 @@ import { VideoDetailComponent } from './videos/video-detail/video-detail.compone
 import { HeaderComponent } from './header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { provideHttpClient } from '@angular/common/http';
+import { VideoListComponent } from './videos/video-list/video-list.component';
+import { AboutComponent } from './about/about.component';
+import { GalleryComponent } from './about/gallery/gallery.component';
+import { ContentComponent } from './about/content/content.component';
+import { ContactComponent } from './contact/contact.component';
+import { VideoEditComponent } from './videos/video-edit/video-edit.component';
+import { PrivacyComponent } from './privacy/privacy.component';
+import { CookiesComponent } from './cookies/cookies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ServerComponent,
-    ServersComponent,
     ChatbotComponent,
     VideosComponent,
     VideoComponent,
     VideoCommentsComponent,
     VideoDetailComponent,
     HeaderComponent,
+    VideoListComponent,
+    AboutComponent,
+    GalleryComponent,
+    ContentComponent,
+    ContactComponent,
+    VideoEditComponent,
+    PrivacyComponent,
+    CookiesComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [provideHttpClient()],

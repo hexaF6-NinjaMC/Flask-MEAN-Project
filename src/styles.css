@@ -1,11 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
-@media (prefers-color-scheme: dark) {
-  body {
-    min-height: 100vh;
-    background-color: #191717;
-    filter: invert(100%) hue-rotate(180deg);
-  }
+[data-theme="dark"]:not([src="../assets/images/day-sun.svg"]) {
+  background-color: #282626;
+}
+
+[data-theme="dark"] body,
+img {
+  filter: invert(95%) hue-rotate(180deg);
+}
+
+[data-theme="light"] body,
+:matches([src="../assets/images/night-moon.svg"]) {
+  filter: invert(15%) hue-rotate(0deg);
+  background-color: #e5e9e9;
+}
+
+[data-theme="light"] img {
+  filter: invert(15%) hue-rotate(0deg);
 }
 
 .chatbox {
@@ -15,36 +26,30 @@
 }
 
 .messages-item {
-  max-width: 60.6%;
+  margin-top: 1rem;
+  background-color: #e0e0e0;
+  padding: 0.5rem 0.5rem;
+  max-width: 70%;
   width: fit-content;
-}
-
-.messages-item-operator {
-  margin-left: auto;
+  overflow-wrap: break-word;
 }
 
 .messages-item-visitor {
   margin-right: auto;
 }
 
-.messages-item {
-  margin-top: 10px;
-  background-color: #e0e0e0;
-  padding: 8px 12px;
-  max-width: 70%;
-}
-
 .messages-item-visitor,
 .messages-item-typing {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .messages-item-operator {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  margin-left: auto;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
   background: var(--primary);
   color: white;
 }
@@ -52,6 +57,10 @@
 html,
 body {
   min-height: 100vh;
+}
+
+.nav-tabs {
+  border-bottom: none !important;
 }
 
 .m-reset {
@@ -75,4 +84,45 @@ body {
 
 .navbar-collapse.collapse > :last-child {
   margin-left: auto;
+}
+
+.btn_toggle-theme {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+}
+
+button {
+  border: transparent 0.1rem solid;
+  border-radius: 50%;
+}
+
+* > :not(.chatbox-active) + .chatbox-button > .glowing {
+  animation: glow 3s infinite;
+}
+
+@keyframes glow {
+  0% {
+    border: transparent 0.1rem solid;
+    border-radius: 50%;
+  }
+  75% {
+    border: #989898 0.1rem solid;
+    border-radius: 50%;
+  }
+  100% {
+    border: transparent 0.1rem solid;
+    border-radius: 50%;
+  }
+}
+
+.over-x {
+  max-width: 80vw;
+  overflow-wrap: break-word;
+}
+
+.scrollable {
+  max-height: 80vh;
+  overflow-y: auto;
 }

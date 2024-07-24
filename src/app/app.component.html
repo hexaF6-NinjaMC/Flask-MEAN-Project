@@ -1,10 +1,22 @@
+<a [routerLink]="['/']">
+  <img
+    class="top-right mb-2"
+    src="../../assets/images/channelAvatar.svg"
+    alt="The White Ninja MC's channel avatar."
+  />
+</a>
 <video-jokebot-header class="app-header"></video-jokebot-header>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12">
-      <h3>Watch my Videos!</h3>
-      <video-jokebot-videos></video-jokebot-videos>
-    </div>
-  </div>
+<div class="scheme-toggle">
+  <button
+    class="btn_toggle-theme"
+    data-theme-toggle
+    aria-label="Change to light theme"
+    title="Switch to light theme"
+  >
+    <img class="theme-img" />
+  </button>
+</div>
+<div class="container-fluid full-body scrollable">
+  <router-outlet></router-outlet>
 </div>
 <video-jokebot-chatbot></video-jokebot-chatbot>

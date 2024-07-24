@@ -1,3 +1,15 @@
-h3 {
-  color: darkblue;
+.full-body {
+  max-height: 74vh;
+}
+
+.top-right {
+  position: relative;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+video-jokebot-chatbot {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1rem;
 }

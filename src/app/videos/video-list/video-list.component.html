@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row pad-left-right">
+      <ul class="list-group scrollable">
+        <li *ngIf="!videos.length">No videos found.</li>
+        <li *ngFor="let video of videos" class="list-group-item">
+          <a [routerLink]="[video.id]">{{ video.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

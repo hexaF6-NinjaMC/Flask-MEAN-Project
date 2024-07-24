@@ -1,0 +1,14 @@
+{
+  "videos": [
+    {
+      "id": "1",
+      "title": "Test Video 1",
+      "length": "180",
+      "description": "First test video description.",
+      "uploadDate": "2024-07-05 01:37:00",
+      "genre": "test",
+      "creator": "Aaron Bechtel",
+      "tags": ["test-tag-1"]
+    }
+  ]
+}

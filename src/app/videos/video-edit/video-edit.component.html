@@ -1,0 +1,79 @@
+<div class="new-video-form">
+  <form #videoForm="ngForm" (ngSubmit)="onSubmit(videoForm)">
+    <input
+      type="text"
+      name="title"
+      [ngModel]="video?.title"
+      class="form-control"
+      size="120"
+      maxlength="120"
+      autofocus
+      required
+      placeholder="Enter Video Title"
+      #title="ngModel"
+    />
+    <textarea
+      name="description"
+      [ngModel]="video?.description"
+      class="form-control"
+      maxlength="255"
+      placeholder="Enter Video Description"
+      rows="5"
+      required
+      #description="ngModel"
+    ></textarea>
+    <input
+      type="text"
+      name="url"
+      [ngModel]="video?.url"
+      class="form-control"
+      placeholder="Enter Video URL"
+      required
+      #url="ngModel"
+    />
+    <input
+      type="number"
+      name="length"
+      [ngModel]="video?.length"
+      class="form-control"
+      title="Enter Video Duration (in seconds)"
+      required
+      #length="ngModel"
+    />
+    <input
+      type="date"
+      name="uploadDate"
+      [ngModel]="video?.uploadDate"
+      class="form-control"
+      required
+      #uploadDate="ngModel"
+    />
+    <input
+      type="text"
+      name="genre"
+      [ngModel]="video?.genre"
+      class="form-control"
+      placeholder="Enter Video Genre"
+      required
+      #genre="ngModel"
+    />
+    <input
+      type="text"
+      name="creator"
+      [ngModel]="video?.creator"
+      class="form-control"
+      placeholder="Enter Video Creator"
+      required
+      #creator="ngModel"
+    />
+    <textarea
+      name="tags"
+      [ngModel]="video?.tags"
+      class="form-control"
+      placeholder="Enter Video Tags (comma-separated)"
+      rows="3"
+      #tags="ngModel"
+    ></textarea>
+    <button type="submit">Add Video</button>
+  </form>
+</div>

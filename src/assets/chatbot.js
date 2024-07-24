@@ -80,6 +80,11 @@ class Chat {
       chat_html.insertAdjacentElement("beforeend", convo_html);
       chatMessage.appendChild(chat_html);
     });
+    chatMessage.scrollTo({
+      top: chatMessage.scrollHeight,
+      left: 0,
+      behavior: "instant",
+    });
   }
 }
 
