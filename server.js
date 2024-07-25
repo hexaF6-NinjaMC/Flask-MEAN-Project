@@ -53,6 +53,8 @@ app.use(express.static(__dirname + "/dist/ng-video-jokebot/browser"));
 app.use("/", index);
 
 // Use routes:
+// Add more for contacts and about pages.
+// Do I need this for Cookies (and Privacy)? Probably not...?
 app.use("/api/videos", videoRoutes);
 
 app.get("*", (req, res) => {
@@ -63,7 +65,6 @@ app.get("*", (req, res) => {
 
 // Connect to MongoDB database:
 const mongo_bird = mongoose;
-// console.log(process.env.MONGO_DB_URI);
 mongo_bird
   .connect(process.env.MONGO_DB_URI)
   .then(() => {

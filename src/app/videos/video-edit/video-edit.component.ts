@@ -2,12 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-// import { NgForm } from '@angular/forms';
-// import { v4 as uuidv4 } from 'uuid';
+import { Component, OnInit } from '@angular/core';
 import { VideoService } from '../video.service';
 import { Video } from '../video.model';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+// import { DatePipe } from '@angular/common'; // Use when project is more fleshed out?
 
 @Component({
   selector: 'video-jokebot-video-edit',
@@ -15,86 +15,58 @@ import { NgForm } from '@angular/forms';
   styleUrl: './video-edit.component.css',
 })
 export class VideoEditComponent implements OnInit {
-  @ViewChild('title') titleRef: ElementRef;
-  @ViewChild('length') lengthRef: ElementRef;
-  @ViewChild('description') descriptionRef: ElementRef;
-  @ViewChild('uploadDate') uploadDateRef: ElementRef;
-  @ViewChild('genre') genreRef: ElementRef;
-  @ViewChild('creator') creatorRef: ElementRef;
-  @ViewChild('tags') tagsRef: ElementRef;
-  @ViewChild('url') urlRef: ElementRef;
-
   video: Video | undefined;
+  originalVideo: Video | undefined;
+  isEditing: boolean = false;
+  id: string;
 
   constructor(
     private videoService: VideoService,
-    // private sanitizer: Sanitizer,
+    private router: Router,
+    private route: ActivatedRoute,
+    // private datePipe: DatePipe, // Use when project is more fleshed out?
   ) {}
 
-  ngOnInit(): void {
-    // this.videoService.videoSelectedEvent.subscribe((video: Video) => {
-    //   this.selectedVideo = video;
-    // });
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.id = params.id as string;
+      if (this.id === undefined || this.id === null) {
+        this.isEditing = false;
+        return;
+      }
+      this.originalVideo = this.videoService.getVideo(this.id);
+      if (this.originalVideo === undefined || this.originalVideo === null) {
+        return;
+      }
+      this.isEditing = true;
+      this.video = JSON.parse(JSON.stringify(this.originalVideo)) as Video;
+    });
   }
 
   onSubmit(form: NgForm) {
+    if (!form.valid) return;
     const value = form.value;
-    console.log('Values:', value);
     const newVideo = new Video(
       value.title,
       value.length,
-      value.description,
       value.uploadDate,
       value.genre,
       value.creator,
       value.url,
-      value.tags.split(',').map((tag: string) => tag.trim()),
+      value.description,
     );
-
-    console.log('Video Data:', newVideo);
-    this.videoService.uploadVideo(newVideo);
+    if (value.tags !== null && value.tags !== undefined) {
+      newVideo.tags = value.tags.split(',').map((tag: string) => tag.trim());
+    }
+    if (this.isEditing) {
+      this.videoService.updateVideoDetails(this.originalVideo, newVideo);
+    } else {
+      this.videoService.uploadVideo(newVideo);
+    }
+    this.onCancel();
   }
 
-  // onAddVideo() {
-  //   const titleEl: HTMLInputElement = this.titleRef
-  //     .nativeElement as HTMLInputElement;
-  //   const lengthEl: HTMLInputElement = this.lengthRef
-  //     .nativeElement as HTMLInputElement;
-  //   const descriptionEl: HTMLTextAreaElement = this.descriptionRef
-  //     .nativeElement as HTMLTextAreaElement;
-  //   const uploadDateEl: HTMLInputElement = this.uploadDateRef
-  //     .nativeElement as HTMLInputElement;
-  //   const genreEl: HTMLInputElement = this.genreRef
-  //     .nativeElement as HTMLInputElement;
-  //   const creatorEl: HTMLInputElement = this.creatorRef
-  //     .nativeElement as HTMLInputElement;
-  //   const tagsEl: HTMLTextAreaElement = this.tagsRef
-  //     .nativeElement as HTMLTextAreaElement;
-  //   const urlEl: HTMLInputElement = this.urlRef
-  //     .nativeElement as HTMLInputElement;
-
-  //   const title = titleEl.value;
-  //   const length = parseInt(lengthEl.value, 10);
-  //   const description = descriptionEl.value;
-  //   const uploadDate = uploadDateEl.valueAsDate;
-  //   const genre = genreEl.value;
-  //   const creator = creatorEl.value;
-  //   const tags = tagsEl.value.split(',').map((tag) => tag.trim());
-  //   const url = urlEl.value.trim();
-
-  //   const video: Video = {
-  //     title,
-  //     length,
-  //     description,
-  //     uploadDate,
-  //     genre,
-  //     creator,
-  //     tags,
-  //     url,
-  //   };
-
-  //   console.log('Video Data:', video);
-
-  //   this.videoService.uploadVideo(video);
-  // }
+  onCancel() {
+    void this.router.navigate(['../'], { relativeTo: this.route });
+  }
 }

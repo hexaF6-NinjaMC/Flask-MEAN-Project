@@ -88,12 +88,18 @@ body {
 
 .btn_toggle-theme {
   position: absolute;
+  border: none;
   top: 0.5rem;
   right: 0.5rem;
   background-color: transparent;
 }
 
-button {
+.border-transparent-50 {
+  border: transparent 0.1rem solid;
+  border-radius: 50%;
+}
+
+.chatbox-active + .chatbox-button > button {
   border: transparent 0.1rem solid;
   border-radius: 50%;
 }
@@ -125,4 +131,48 @@ button {
 .scrollable {
   max-height: 80vh;
   overflow-y: auto;
+}
+
+.scrollable-md {
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+.w-45 {
+  max-width: 45%;
+}
+
+.w-55 {
+  max-width: 55%;
+}
+
+.sticky-custom {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.blue {
+  background-color: #78bae6;
+  color: black;
+}
+
+.btn-custom {
+  line-height: 1rem;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 2rem;
+  font-weight: 500;
+}
+
+.lh-custom {
+  line-height: 1.5;
+}
+
+.p-reset {
+  padding: initial;
+}
+
+.w-reset {
+  width: initial;
 }

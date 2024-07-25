@@ -1,10 +1,13 @@
-<div class="new-video-form">
+<div class="new-video-form row flex-nowrap flex-row justify-content-between">
   <form #videoForm="ngForm" (ngSubmit)="onSubmit(videoForm)">
+    <label for="title">Title</label>
     <input
       type="text"
+      id="title"
       name="title"
       [ngModel]="video?.title"
       class="form-control"
+      title="Enter the title of your Video (max length is 120 characters)."
       size="120"
       maxlength="120"
       autofocus
@@ -12,68 +15,125 @@
       placeholder="Enter Video Title"
       #title="ngModel"
     />
+
+    <label for="description">Description</label>
     <textarea
+      id="description"
       name="description"
       [ngModel]="video?.description"
       class="form-control"
       maxlength="255"
+      title="Enter your video's description (max length is 255 characters)."
       placeholder="Enter Video Description"
       rows="5"
       required
       #description="ngModel"
-    ></textarea>
+      >{{ video?.description }}</textarea
+    >
+
+    <label for="url">Video Url</label>
     <input
       type="text"
+      id="url"
       name="url"
       [ngModel]="video?.url"
       class="form-control"
+      title="Enter the Video URL (https protocol preferred)."
       placeholder="Enter Video URL"
       required
       #url="ngModel"
     />
+
+    <label for="length">Length</label>
     <input
       type="number"
+      id="length"
       name="length"
       [ngModel]="video?.length"
       class="form-control"
-      title="Enter Video Duration (in seconds)"
+      title="Enter Video Duration (in seconds)."
+      placeholder="Enter Video Length"
+      min="1"
+      step="1"
       required
       #length="ngModel"
     />
+
+    <label for="uploadDate">Upload Date</label>
     <input
       type="date"
+      id="uploadDate"
       name="uploadDate"
-      [ngModel]="video?.uploadDate"
+      [ngModel]="video?.uploadDate | date: 'yyyy-MM-dd'"
       class="form-control"
+      title="Enter the Video upload date."
       required
       #uploadDate="ngModel"
     />
+
+    <label for="genre">Genre</label>
     <input
       type="text"
+      id="genre"
       name="genre"
       [ngModel]="video?.genre"
       class="form-control"
+      title="Enter a Video Genre."
       placeholder="Enter Video Genre"
       required
       #genre="ngModel"
     />
+
+    <label for="creator">Creator</label>
     <input
       type="text"
+      id="creator"
       name="creator"
       [ngModel]="video?.creator"
       class="form-control"
+      title="Enter the Video Creator."
       placeholder="Enter Video Creator"
       required
       #creator="ngModel"
     />
+
+    <label for="tags">Tags</label>
     <textarea
+      id="tags"
       name="tags"
       [ngModel]="video?.tags"
       class="form-control"
+      title="Enter any Video Tags (comma-separated). (Not required.)"
       placeholder="Enter Video Tags (comma-separated)"
       rows="3"
+      spellcheck="false"
       #tags="ngModel"
     ></textarea>
-    <button type="submit">Add Video</button>
+
+    <button type="submit" class="btn btn-success m-2">Submit Details</button>
+    <button type="button" class="btn btn-primary m-2" (click)="onCancel()">
+      Cancel
+    </button>
   </form>
+
+  <div *ngIf="isEditing === true" class="container">
+    <h2>Previous Video Details</h2>
+    <div *ngFor="let detail of video | keyvalue">
+      <p
+        *ngIf="
+          detail.key !== 'uploadDate' &&
+            detail.key !== '__v' &&
+            detail.key !== '_id';
+          else uploadDateRef
+        "
+      >
+        {{ detail.key }}: {{ detail.value }}
+      </p>
+      <ng-template #uploadDateRef>
+        <p *ngIf="detail.key !== '__v' && detail.key !== '_id'">
+          {{ detail.key }}: {{ detail.value | date: "longDate" }}
+        </p>
+      </ng-template>
+    </div>
+  </div>
 </div>

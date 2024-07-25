@@ -1,5 +1,13 @@
-<p>video-detail works!</p>
-<p>
-  VideoDetailComponent will include details of the Video as well as the video
-  playback player.
-</p>
+<div class="row">
+  <div class="d-flex flex-row justify-content-around">
+    <button [routerLink]="['edit']" class="btn btn-primary m-1">
+      Edit Details
+    </button>
+    <button (click)="onDelete()" class="btn btn-danger m-1">Delete</button>
+  </div>
+  <video class="mx-auto" width="320" height="240" controls>
+    <source src="{{ video.url }}" type="video/mp4" />
+  </video>
+  <h3>{{ video.title }}</h3>
+  <p>{{ video.description }}</p>
+</div>

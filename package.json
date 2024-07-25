@@ -8,6 +8,7 @@
     "pretty": "prettier --write .",
     "ng": "ng",
     "start": "node server.js",
+    "start-nodemon-backend": "nodemon ./server.js",
     "start-dev": "npm run lint && npm run compile && nodemon --exec ng serve",
     "start-node-dev": "npm run lint && npm run compile && ng build && nodemon server.js",
     "build": "ng build",
