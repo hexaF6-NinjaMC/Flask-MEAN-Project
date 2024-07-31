@@ -5,9 +5,15 @@
     </button>
     <button (click)="onDelete()" class="btn btn-danger m-1">Delete</button>
   </div>
-  <video class="mx-auto" width="320" height="240" controls>
-    <source src="{{ video.url }}" type="video/mp4" />
-  </video>
+  <video
+    src="{{ video.url }}"
+    type="video/mp4"
+    class="mx-auto"
+    width="320"
+    height="240"
+    controls
+    [controlsList]="['nodownload']"
+  ></video>
   <h3>{{ video.title }}</h3>
-  <p>{{ video.description }}</p>
+  <p class="mb-5 w-75 overflow-x">{{ video.description }}</p>
 </div>

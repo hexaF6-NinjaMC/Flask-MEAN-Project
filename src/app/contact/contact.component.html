@@ -1,1 +1,32 @@
 <p>contact works!</p>
+<!-- Create a Contact form -->
+<form class="row g-3 needs-validation" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <div class="col-md-4">
+    <label class="form-label" for="fname">First Name:</label>
+    <input class="form-control" type="text" id="fname" name="fname" required autocomplete="given-name">
+  </div>
+  
+  <div class="col-md-4">
+    <label class="form-label" for="lname">Last Name:</label>
+    <input class="form-control" type="text" id="lname" name="lname" required autocomplete="family-name">
+  </div>
+  
+  <div class="col-md-5">
+    <label class="form-label" for="email">Email:</label>
+    <input class="form-control" type="email" id="email" name="email" required autocomplete="email">
+  </div>
+  
+  <div class="col-md-3">
+    <label class="form-label" for="phone">Phone Number:</label>
+    <input class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required autocomplete="tel-area-code">
+  </div>
+  
+  <div class="col-md-8">
+    <label class="form-label" for="message">Message:</label>
+    <textarea class="form-control" id="message" name="message" required autocapitalize="sentences" rows="6"></textarea>
+  </div>
+  
+  <div class="col-8">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>

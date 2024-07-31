@@ -41,6 +41,16 @@
   text-align: right;
 }
 
+.chatbox-button > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatbox-button button img {
+  max-width: 130%;
+}
+
 .send-button {
   padding: 0.4rem;
   background: transparent;

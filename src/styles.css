@@ -1,11 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Remove pesky Bootstrap z-index: */
+* {
+  z-index: initial !important;
+}
+
+/* SVG image buttons are to be 55px X 55px max: */
+button:has(img) {
+  max-width: 55px;
+  max-height: 55px;
+}
+
+/* Add a dark mode switch: */
 [data-theme="dark"]:not([src="../assets/images/day-sun.svg"]) {
   background-color: #282626;
 }
 
 [data-theme="dark"] body,
-img {
+img,
+video {
   filter: invert(95%) hue-rotate(180deg);
 }
 
@@ -15,7 +28,8 @@ img {
   background-color: #e5e9e9;
 }
 
-[data-theme="light"] img {
+[data-theme="light"] img,
+[data-theme="light"] video {
   filter: invert(15%) hue-rotate(0deg);
 }
 
@@ -175,4 +189,8 @@ body {
 
 .w-reset {
   width: initial;
+}
+
+.list-group-item {
+  max-width: 100vw !important;
 }
