@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 import process from "process";
 import router from "./frontend/routes/app.js";
 import videosRouter from "./frontend/routes/video.js";
+import emailRouter from "./frontend/routes/email.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -21,6 +22,7 @@ const app = express();
 // Initialize routes:
 const index = router;
 const videoRoutes = videosRouter;
+const emailRoutes = emailRouter;
 
 // Tell express to use the following parsers for POST data
 app.use(bodyParser.json());
@@ -56,6 +58,7 @@ app.use("/", index);
 // Add more for contacts and about pages.
 // Do I need this for Cookies (and Privacy)? Probably not...?
 app.use("/api/videos", videoRoutes);
+app.use("/api/send-contact", emailRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(

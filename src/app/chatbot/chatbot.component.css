@@ -55,7 +55,6 @@
   padding: 0.4rem;
   background: transparent;
   border: none;
-  outline: none;
   cursor: pointer;
 }
 
@@ -126,11 +125,9 @@
 }
 
 .chatbox-button button,
-.chatbox-button button:focus,
 .chatbox-button button:visited {
   padding: 0.9rem;
   background: white;
-  outline: none;
   box-shadow: 0 0.9rem 1.2rem rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }

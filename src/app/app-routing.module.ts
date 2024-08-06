@@ -35,10 +35,11 @@ const routes: Routes = [
         path: ':id',
         component: VideoDetailComponent, // Navigates to the specific video with Comments and Details components
       },
-      {
-        path: ':id/edit',
-        component: VideoEditComponent, // Allows editing of a specific video
-      },
+      /* Temporarily disabled until Auth is implemented. NEW will probably remain. */
+      // {
+      //   path: ':id/edit',
+      //   component: VideoEditComponent, // Allows editing of a specific video
+      // },
     ],
   },
   {

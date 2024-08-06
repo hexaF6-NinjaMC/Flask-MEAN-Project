@@ -1,32 +1,95 @@
-<p>contact works!</p>
 <!-- Create a Contact form -->
-<form class="row g-3 needs-validation" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
-  <div class="col-md-4">
-    <label class="form-label" for="fname">First Name:</label>
-    <input class="form-control" type="text" id="fname" name="fname" required autocomplete="given-name">
-  </div>
-  
-  <div class="col-md-4">
-    <label class="form-label" for="lname">Last Name:</label>
-    <input class="form-control" type="text" id="lname" name="lname" required autocomplete="family-name">
-  </div>
-  
-  <div class="col-md-5">
-    <label class="form-label" for="email">Email:</label>
-    <input class="form-control" type="email" id="email" name="email" required autocomplete="email">
-  </div>
-  
-  <div class="col-md-3">
-    <label class="form-label" for="phone">Phone Number:</label>
-    <input class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required autocomplete="tel-area-code">
-  </div>
-  
-  <div class="col-md-8">
-    <label class="form-label" for="message">Message:</label>
-    <textarea class="form-control" id="message" name="message" required autocapitalize="sentences" rows="6"></textarea>
-  </div>
-  
-  <div class="col-8">
-    <button class="btn btn-primary" type="submit">Submit</button>
-  </div>
-</form>
+<div class="col-auto flex-nowrap flex-row">
+  <h3 class="col-form-label col-md-3 col-form-label-lg">Contact Me</h3>
+  <form
+    class="row col-10 g-3 needs-validation justify-content-center"
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+    novalidate
+  >
+    <div class="col-10">
+      <h4>Please input your message details.</h4>
+      <p>All Fields are Required (<span class="red">*</span>).</p>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label" for="fname"
+        >First Name:<span class="red">*</span></label
+      >
+      <input
+        id="fname"
+        name="fname"
+        class="form-control"
+        type="text"
+        required
+        autocomplete="given-name"
+        [ngModel]
+      />
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="lname"
+        >Last Name:<span class="red">*</span></label
+      >
+      <input
+        class="form-control"
+        type="text"
+        id="lname"
+        name="lname"
+        required
+        autocomplete="family-name"
+        [ngModel]
+      />
+    </div>
+
+    <div class="col-md-5">
+      <label class="form-label" for="email"
+        >Email:<span class="red">*</span></label
+      >
+      <input
+        class="form-control"
+        type="email"
+        id="email"
+        name="email"
+        required
+        autocomplete="email"
+        [ngModel]
+      />
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="phone"
+        >Phone Number:<span class="red">*</span></label
+      >
+      <input
+        class="form-control"
+        type="tel"
+        id="phone"
+        name="phone"
+        pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+        required
+        autocomplete="tel"
+        [ngModel]
+      />
+    </div>
+
+    <div class="col-md-8">
+      <label class="form-label" for="message"
+        >Message:<span class="red">*</span></label
+      >
+      <textarea
+        class="form-control"
+        id="message"
+        name="message"
+        required
+        autocapitalize="sentences"
+        rows="6"
+        spellcheck="true"
+        [ngModel]
+      ></textarea>
+    </div>
+
+    <div class="col-8">
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

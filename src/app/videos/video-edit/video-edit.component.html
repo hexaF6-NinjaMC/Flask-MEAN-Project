@@ -1,6 +1,10 @@
 <div class="new-video-form row flex-nowrap flex-row justify-content-between">
   <form #videoForm="ngForm" (ngSubmit)="onSubmit(videoForm)">
-    <label for="title">Title</label>
+    <div class="col-10">
+      <h4>Please input video details.</h4>
+      <p>All Required Fields are marked as (<span class="red">*</span>).</p>
+    </div>
+    <label for="title">Title:<span class="red">*</span></label>
     <input
       type="text"
       id="title"
@@ -16,7 +20,7 @@
       #title="ngModel"
     />
 
-    <label for="description">Description</label>
+    <label for="description">Description:<span class="red">*</span></label>
     <textarea
       id="description"
       name="description"
@@ -31,7 +35,7 @@
       >{{ video?.description }}</textarea
     >
 
-    <label for="url">Video Url</label>
+    <label for="url">Video URL:<span class="red">*</span></label>
     <input
       type="text"
       id="url"
@@ -44,7 +48,7 @@
       #url="ngModel"
     />
 
-    <label for="length">Length</label>
+    <label for="length">Length:<span class="red">*</span></label>
     <input
       type="number"
       id="length"
@@ -59,7 +63,7 @@
       #length="ngModel"
     />
 
-    <label for="uploadDate">Upload Date</label>
+    <label for="uploadDate">Upload Date:<span class="red">*</span></label>
     <input
       type="date"
       id="uploadDate"
@@ -71,7 +75,7 @@
       #uploadDate="ngModel"
     />
 
-    <label for="genre">Genre</label>
+    <label for="genre">Genre:<span class="red">*</span></label>
     <input
       type="text"
       id="genre"
@@ -84,7 +88,7 @@
       #genre="ngModel"
     />
 
-    <label for="creator">Creator</label>
+    <label for="creator">Creator:<span class="red">*</span></label>
     <input
       type="text"
       id="creator"

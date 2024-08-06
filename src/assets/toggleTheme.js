@@ -49,10 +49,10 @@ function calculateSettingAsThemeString({
 function updateButton({ buttonEl, isDark, buttonImage }) {
   if (isDark) {
     buttonEl.classList.remove("dark");
-    buttonImage.setAttribute("src", "../assets/images/day-sun.svg");
+    buttonImage.setAttribute("src", "/assets/images/day-sun.svg");
   } else {
     buttonEl.classList.add("dark");
-    buttonImage.setAttribute("src", "../assets/images/night-moon.svg");
+    buttonImage.setAttribute("src", "/assets/images/night-moon.svg");
   }
   const newCta = isDark ? "Change to light theme" : "Change to dark theme";
 

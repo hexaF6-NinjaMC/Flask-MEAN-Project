@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SendEmailService } from './send-email.service';
 
 @Component({
   selector: 'video-jokebot-contact',
@@ -10,25 +11,21 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
-  constructor(private router: Router, private route: ActivatedRoute) {}
-  
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private emailService: SendEmailService,
+  ) {}
+
   onSubmit(form: NgForm) {
     if (!form.valid) return;
     const value = form.value;
     const name = value.fname + ' ' + value.lname;
-    const email = value.email;
-    const phone = value.phone;
-    const message = value.message;
+    const email = value.email as string;
+    const phone = value.phone as string;
+    const message = value.message as string;
 
-    console.log('Form submitted:', { name, email, phone, message });
-    
-    // TODO: Send email or message to the server
-    // Example:
-    // this.http.post('https://your-server-url.com/send-contact-form', { name, email, phone, message })
-    //  .subscribe({
-    //     next: (responseData) => console.log(responseData),
-    //     error: (error: HttpErrorResponse) => console.error(error),
-    //   });
+    this.emailService.sendEmail(name, email, phone, message);
 
     alert(`Thank you, ${name}! Your message has been sent.`);
     this.onCancel();

@@ -12,25 +12,24 @@ button:has(img) {
 }
 
 /* Add a dark mode switch: */
-[data-theme="dark"]:not([src="../assets/images/day-sun.svg"]) {
-  background-color: #282626;
-}
-
-[data-theme="dark"] body,
-img,
-video {
+[data-theme="dark"] body {
   filter: invert(95%) hue-rotate(180deg);
+  background-color: #161616;
 }
 
-[data-theme="light"] body,
-:matches([src="../assets/images/night-moon.svg"]) {
-  filter: invert(15%) hue-rotate(0deg);
+[data-theme="dark"] img,
+[data-theme="dark"] video:not(:fullscreen) {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+[data-theme="light"] body {
+  filter: invert(0%) hue-rotate(0deg);
   background-color: #e5e9e9;
 }
 
 [data-theme="light"] img,
 [data-theme="light"] video {
-  filter: invert(15%) hue-rotate(0deg);
+  filter: invert(0%) hue-rotate(0deg);
 }
 
 .chatbox {
@@ -126,14 +125,20 @@ body {
   0% {
     border: transparent 0.1rem solid;
     border-radius: 50%;
+    outline-offset: 0.25rem;
+    outline-color: cyan;
   }
   75% {
     border: #989898 0.1rem solid;
     border-radius: 50%;
+    outline-offset: 0.25rem;
+    outline-color: cyan;
   }
   100% {
     border: transparent 0.1rem solid;
     border-radius: 50%;
+    outline-offset: 0.25rem;
+    outline-color: cyan;
   }
 }
 
@@ -193,4 +198,22 @@ body {
 
 .list-group-item {
   max-width: 100vw !important;
+}
+
+.ng-invalid {
+  border-color: red;
+  border-width: 1px;
+  border-style: solid;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.ng-valid {
+  border-color: green;
+  border-width: 1px;
+  border-style: solid;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.red {
+  color: red;
 }
