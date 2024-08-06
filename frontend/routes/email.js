@@ -43,8 +43,8 @@ emailRouter.post("/", (req, res) => {
   const mailOptions = {
     from: `"${req.body.sender}" <${req.body.senderEmail}>`,
     to: process.env.EMAIL_USER,
-    subject: `GAMING.FSIXNINJA - Contact message from: ${req.body.sender} - PH: ${req.body.senderPhone}`,
-    text: req.body.message,
+    subject: `GAMING.FSIXNINJA - Contact message from: ${req.body.sender}`,
+    text: `INQUIRER EMAIL: ${req.body.senderEmail}\nINQUIRER PHONE: ${req.body.senderPhone}\n\nMESSAGE:\n${req.body.message}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
