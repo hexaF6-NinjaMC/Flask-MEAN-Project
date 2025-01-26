@@ -40,7 +40,7 @@ class Chat {
     };
     this.messages.push(msg1);
 
-    fetch("https://ai-flask-m190.onrender.com/chatbot/predict", {
+    fetch("https://ai-flask-production.up.railway.app/chatbot/predict", {
       method: "POST",
       body: JSON.stringify({ message: text }),
       mode: "cors",
