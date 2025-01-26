@@ -1,0 +1,47 @@
+<div>
+  <div>
+    <div class="row scrollable-md">
+      <ul class="list-group p-reset">
+        <li *ngIf="!modpacks.length">No modpacks found.</li>
+        <li *ngFor="let modpack of modpacks" class="list-group-item">
+          <div class="row flex-row">
+            <div class="float-start fw-bold fs-2 w-55">
+              {{ modpack.title }}
+            </div>
+            <a
+              href="/assets/modpacks/{{ modpack.name }}"
+              class="list-group-item w-45 align-middle link-primary link-underline-opacity-100-hover"
+              title="Download {{ modpack.title }}"
+              download="{{ modpack.name }}"
+            >
+              {{ modpack.name }}
+            </a>
+            <div class="row flex-row">
+              <span class="float-start fst-italic">
+                {{ modpack.description }}
+              </span>
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Version</th>
+                    <th scope="col">Release Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="badge text-bg-primary">
+                      {{ modpack.version }}
+                    </td>
+                    <td>
+                      {{ modpack.releaseDate | date: "medium" }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

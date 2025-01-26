@@ -10,7 +10,7 @@
     "start": "node server.js",
     "start-nodemon-backend": "nodemon ./server.js",
     "start-dev": "npm run lint && npm run compile && nodemon --exec ng serve",
-    "start-node-dev": "npm run lint && npm run compile && ng build && nodemon server.js",
+    "start-node-dev": "npm run lint && npm run compile && ng build --configuration=development && nodemon server.js",
     "build": "ng build",
     "prod": "ng build --configuration=production --optimization",
     "watch": "ng build --watch --configuration development",

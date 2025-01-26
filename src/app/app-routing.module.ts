@@ -1,13 +1,18 @@
+/**
+ * Some lines are disabled for production build, as we need to incorporate authentication later.
+ */
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { VideosComponent } from './videos/videos.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { VideoEditComponent } from './videos/video-edit/video-edit.component';
+// import { VideoEditComponent } from './videos/video-edit/video-edit.component';
 import { VideoDetailComponent } from './videos/video-detail/video-detail.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { CookiesComponent } from './cookies/cookies.component';
+import { ModpacksComponent } from './modpacks/modpacks.component';
+// import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.component';
 
 const routes: Routes = [
   {
@@ -27,10 +32,10 @@ const routes: Routes = [
     path: 'videos',
     component: VideosComponent, // VideosComponent contains the VideosListComponent
     children: [
-      {
-        path: 'new',
-        component: VideoEditComponent, // Default route to VideosComponent if no specific video ID is provided
-      },
+      // {
+      //   path: 'new',
+      //   component: VideoEditComponent, // Default route to VideosComponent if no specific video ID is provided
+      // },
       {
         path: ':id',
         component: VideoDetailComponent, // Navigates to the specific video with Comments and Details components
@@ -49,6 +54,16 @@ const routes: Routes = [
   {
     path: 'cookies',
     component: CookiesComponent,
+  },
+  {
+    path: 'modpacks',
+    component: ModpacksComponent,
+    // children: [
+    //   {
+    //     path: 'new',
+    //     component: ModpackEditComponent, // Allows editing of a specific Modpack
+    //   },
+    // ],
   },
 ];
 

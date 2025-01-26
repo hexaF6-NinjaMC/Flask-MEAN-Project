@@ -9,6 +9,7 @@ import process from "process";
 import router from "./frontend/routes/app.js";
 import videosRouter from "./frontend/routes/video.js";
 import emailRouter from "./frontend/routes/email.js";
+import modpacksRouter from "./frontend/routes/modpack.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -23,6 +24,7 @@ const app = express();
 const index = router;
 const videoRoutes = videosRouter;
 const emailRoutes = emailRouter;
+const modpackRoutes = modpacksRouter;
 
 // Tell express to use the following parsers for POST data
 app.use(bodyParser.json());
@@ -59,6 +61,7 @@ app.use("/", index);
 // Do I need this for Cookies (and Privacy)? Probably not...?
 app.use("/api/videos", videoRoutes);
 app.use("/api/send-contact", emailRoutes);
+app.use("/api/modpacks", modpackRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(

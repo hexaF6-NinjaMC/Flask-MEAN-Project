@@ -18,6 +18,9 @@ import { ContactComponent } from './contact/contact.component';
 import { VideoEditComponent } from './videos/video-edit/video-edit.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { CookiesComponent } from './cookies/cookies.component';
+import { ModpacksComponent } from './modpacks/modpacks.component';
+import { ModpacksListComponent } from './modpacks/modpacks-list/modpacks-list.component';
+import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { CookiesComponent } from './cookies/cookies.component';
     VideoEditComponent,
     PrivacyComponent,
     CookiesComponent,
+    ModpacksComponent,
+    ModpacksListComponent,
+    ModpackEditComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [provideHttpClient()],

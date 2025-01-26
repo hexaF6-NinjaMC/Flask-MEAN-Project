@@ -1,0 +1,157 @@
+<div class="new-modpack-form row flex-nowrap flex-row justify-content-between">
+  <form #modpackForm="ngForm" (ngSubmit)="onSubmit(modpackForm)">
+    <div class="col-10">
+      <h4>Please input video details.</h4>
+      <p>All Required Fields are marked as (<span class="red">*</span>).</p>
+    </div>
+    <label for="title">Title:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [ngModel]="modpack?.title"
+      class="form-control"
+      title="Enter the title of your Modpack (max length is 120 characters)."
+      size="120"
+      maxlength="120"
+      autofocus
+      required
+      placeholder="Enter Modpack Title"
+      #title="ngModel"
+    />
+
+    <label for="name">File Name:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [ngModel]="modpack?.name"
+      class="form-control"
+      title="Enter the file name (with extension) of your Modpack (max length is 120 characters)."
+      size="120"
+      maxlength="120"
+      autofocus
+      required
+      placeholder="Enter Modpack Name"
+      #title="ngModel"
+    />
+
+    <label for="description">Description:<span class="red">*</span></label>
+    <textarea
+      id="description"
+      name="description"
+      [ngModel]="modpack?.description"
+      class="form-control"
+      maxlength="255"
+      title="Enter your modpack's description (max length is 255 characters)."
+      placeholder="Enter Modpack Description"
+      rows="5"
+      required
+      #description="ngModel"
+      >{{ modpack?.description }}</textarea
+    >
+
+    <label for="url">Modpack URL:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="url"
+      name="url"
+      [ngModel]="modpack?.url"
+      class="form-control"
+      title="Enter the Modpack URL (https protocol preferred)."
+      placeholder="Enter Modpack URL"
+      required
+      #url="ngModel"
+    />
+
+    <label for="version">Version:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="version"
+      name="version"
+      [ngModel]="modpack?.version"
+      class="form-control"
+      title="Enter Modpack Version (x.x.x)."
+      placeholder="Enter Modpack Version"
+      required
+      #length="ngModel"
+    />
+
+    <label for="releaseDate">Release Date:<span class="red">*</span></label>
+    <input
+      type="date"
+      id="releaseDate"
+      name="releaseDate"
+      [ngModel]="modpack?.releaseDate | date: 'yyyy-MM-dd'"
+      class="form-control"
+      title="Enter the Modpack version release date."
+      required
+      #uploadDate="ngModel"
+    />
+
+    <label for="genre">Genre:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="genre"
+      name="genre"
+      [ngModel]="modpack?.genre"
+      class="form-control"
+      title="Enter the Modpack Genre."
+      placeholder="Enter Modpack Genre"
+      required
+      #genre="ngModel"
+    />
+
+    <label for="creator">Creator:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="creator"
+      name="creator"
+      [ngModel]="modpack?.creator"
+      class="form-control"
+      title="Enter the Modpack Creator."
+      placeholder="Enter Modpack Creator"
+      required
+      #creator="ngModel"
+    />
+
+    <label for="tags">Tags</label>
+    <textarea
+      id="tags"
+      name="tags"
+      [ngModel]="modpack?.tags"
+      class="form-control"
+      title="Enter any Modpack Tags (comma-separated). (Not required.)"
+      placeholder="Enter Modpack Tags (comma-separated)"
+      rows="3"
+      spellcheck="false"
+      #tags="ngModel"
+    ></textarea>
+
+    <button type="submit" class="btn btn-success m-2">Submit Details</button>
+    <button type="button" class="btn btn-primary m-2" (click)="onCancel()">
+      Cancel
+    </button>
+  </form>
+
+  <div *ngIf="isEditing === true" class="container">
+    <h2>Previous Modpack Details</h2>
+    <div *ngFor="let detail of modpack | keyvalue">
+      <p
+        *ngIf="
+          detail.key !== 'releaseDate' &&
+            detail.key !== '__v' &&
+            detail.key !== '_id';
+          else releaseDateRef
+        "
+      >
+        {{ detail.key }}: {{ detail.value }}
+      </p>
+      <ng-template #releaseDateRef>
+        <p *ngIf="detail.key !== '__v' && detail.key !== '_id'">
+          {{ detail.key }}: {{ detail.value | date: "longDate" }}
+        </p>
+      </ng-template>
+    </div>
+  </div>
+</div>
