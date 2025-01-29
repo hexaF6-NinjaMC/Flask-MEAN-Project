@@ -13,7 +13,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
 import { CookiesComponent } from './cookies/cookies.component';
 import { ModpacksComponent } from './modpacks/modpacks.component';
 import { SchematicsComponent } from './schematics/schematics.component';
-import { SchematicEditComponent } from './schematics/schematic-edit/schematic-edit.component';
+// import { SchematicEditComponent } from './schematics/schematic-edit/schematic-edit.component';
 // import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.component';
 
 const routes: Routes = [
@@ -70,12 +70,12 @@ const routes: Routes = [
   {
     path: 'schematics',
     component: SchematicsComponent,
-    children: [
-      {
-        path: 'new',
-        component: SchematicEditComponent, // Allows editing of a specific Schematic
-      },
-    ],
+    // children: [
+    //   {
+    //     path: 'new',
+    //     component: SchematicEditComponent, // Allows editing of a specific Schematic
+    //   },
+    // ],
   },
 ];
 

@@ -12,27 +12,27 @@ modpacksRouter.get("/", (req, res) => {
   });
 });
 
-modpacksRouter.post("/", (req, res) => {
-  // console.log(req.body);
-  const newModpack = new Modpack({
-    title: req.body.title,
-    name: req.body.name,
-    version: req.body.version,
-    releaseDate: new Date(),
-    genre: req.body.genre,
-    creator: req.body.creator,
-    url: req.body.url,
-    description: req.body.description,
-    tags: req.body.tags,
-  });
+// modpacksRouter.post("/", (req, res) => {
+//   // console.log(req.body);
+//   const newModpack = new Modpack({
+//     title: req.body.title,
+//     name: req.body.name,
+//     version: req.body.version,
+//     releaseDate: new Date(),
+//     genre: req.body.genre,
+//     creator: req.body.creator,
+//     url: req.body.url,
+//     description: req.body.description,
+//     tags: req.body.tags,
+//   });
 
-  newModpack.save().then((createdModpack) => {
-    res.status(201).json({
-      message: "Modpack saved successfully",
-      modpack: createdModpack,
-    });
-  });
-});
+//   newModpack.save().then((createdModpack) => {
+//     res.status(201).json({
+//       message: "Modpack saved successfully",
+//       modpack: createdModpack,
+//     });
+//   });
+// });
 
 // modpacksRouter.put("/:id", (req, res) => {
 //   const id = req.params.id;

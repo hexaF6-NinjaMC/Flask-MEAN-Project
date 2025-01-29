@@ -12,27 +12,27 @@ schematicsRouter.get("/", (req, res) => {
   });
 });
 
-schematicsRouter.post("/", (req, res) => {
-  // console.log(req.body);
-  const newSchematic = new Schematic({
-    title: req.body.title,
-    name: req.body.name,
-    releaseVersion: req.body.releaseVersion,
-    version: req.body.version,
-    creator: req.body.creator,
-    url: req.body.url,
-    img: req.body.img,
-    description: req.body.description,
-    tags: req.body.tags,
-  });
+// schematicsRouter.post("/", (req, res) => {
+//   // console.log(req.body);
+//   const newSchematic = new Schematic({
+//     title: req.body.title,
+//     name: req.body.name,
+//     releaseVersion: req.body.releaseVersion,
+//     version: req.body.version,
+//     creator: req.body.creator,
+//     url: req.body.url,
+//     img: req.body.img,
+//     description: req.body.description,
+//     tags: req.body.tags,
+//   });
 
-  newSchematic.save().then((createdSchematic) => {
-    res.status(201).json({
-      message: "Schematic saved successfully",
-      schematic: createdSchematic,
-    });
-  });
-});
+//   newSchematic.save().then((createdSchematic) => {
+//     res.status(201).json({
+//       message: "Schematic saved successfully",
+//       schematic: createdSchematic,
+//     });
+//   });
+// });
 
 // schematicsRouter.put("/:id", (req, res) => {
 //   const id = req.params.id;
