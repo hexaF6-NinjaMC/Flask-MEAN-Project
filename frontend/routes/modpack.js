@@ -6,7 +6,7 @@ const modpacksRouter = express.Router();
 modpacksRouter.get("/", (req, res) => {
   Modpack.find().then((results) => {
     res.json({
-      message: "Retrieved video data",
+      message: "Retrieved schematic data",
       modpackResults: results,
     });
   });

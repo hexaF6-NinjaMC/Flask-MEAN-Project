@@ -10,6 +10,7 @@ import router from "./frontend/routes/app.js";
 import videosRouter from "./frontend/routes/video.js";
 import emailRouter from "./frontend/routes/email.js";
 import modpacksRouter from "./frontend/routes/modpack.js";
+import schematicsRouter from "./frontend/routes/schematic.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -25,6 +26,7 @@ const index = router;
 const videoRoutes = videosRouter;
 const emailRoutes = emailRouter;
 const modpackRoutes = modpacksRouter;
+const schematicRoutes = schematicsRouter;
 
 // Tell express to use the following parsers for POST data
 app.use(bodyParser.json());
@@ -62,6 +64,7 @@ app.use("/", index);
 app.use("/api/videos", videoRoutes);
 app.use("/api/send-contact", emailRoutes);
 app.use("/api/modpacks", modpackRoutes);
+app.use("/api/schematics", schematicRoutes);
 
 app.get("*", (req, res) => {
   res.sendFile(

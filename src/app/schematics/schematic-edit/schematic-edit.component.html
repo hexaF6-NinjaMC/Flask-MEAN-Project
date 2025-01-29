@@ -1,0 +1,162 @@
+<div
+  class="new-schematic-form row flex-nowrap flex-row justify-content-between"
+>
+  <form #schematicForm="ngForm" (ngSubmit)="onSubmit(schematicForm)">
+    <div class="col-10">
+      <h4>Please input Schematic details.</h4>
+      <p>All Required Fields are marked as (<span class="red">*</span>).</p>
+    </div>
+    <label for="title">Title:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [ngModel]="schematic?.title"
+      class="form-control"
+      title="Enter the title of your Schematic (max length is 120 characters)."
+      size="120"
+      maxlength="120"
+      autofocus
+      required
+      placeholder="Enter Schematic Title"
+      #title="ngModel"
+    />
+
+    <label for="name">File Name:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [ngModel]="schematic?.name"
+      class="form-control"
+      title="Enter the file name (with extension) of your Schematic (max length is 120 characters)."
+      size="120"
+      maxlength="120"
+      autofocus
+      required
+      placeholder="Enter Schematic Name"
+      #title="ngModel"
+    />
+
+    <label for="description">Description:<span class="red">*</span></label>
+    <textarea
+      id="description"
+      name="description"
+      [ngModel]="schematic?.description"
+      class="form-control"
+      maxlength="255"
+      title="Enter your Schematic's description (max length is 255 characters)."
+      placeholder="Enter Schematic Description"
+      rows="5"
+      required
+      #description="ngModel"
+      >{{ schematic?.description }}</textarea
+    >
+
+    <label for="url">Schematic URL:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="url"
+      name="url"
+      [ngModel]="schematic?.url"
+      class="form-control"
+      title="Enter the Schematic URL (https protocol preferred)."
+      placeholder="Enter Schematic URL"
+      required
+      #url="ngModel"
+    />
+
+    <label for="img">Schematic Image Name:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="img"
+      name="img"
+      [ngModel]="schematic?.img"
+      class="form-control"
+      title="Enter the file name (with extension) of your Schematic Image (max length is 120 characters)."
+      placeholder="Enter Schematic Image Name"
+      required
+      #url="ngModel"
+    />
+
+    <label for="releaseVersion"
+      >Create Version:<span class="red">*</span></label
+    >
+    <input
+      type="text"
+      id="releaseVersion"
+      name="releaseVersion"
+      [ngModel]="schematic?.releaseVersion"
+      class="form-control"
+      title="Enter Schematic's associated Create Version (ex: x.x.x-y.y.y)."
+      placeholder="Enter Schematic Create Version"
+      required
+      #length="ngModel"
+    />
+
+    <label for="version">Schematic Version:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="version"
+      name="version"
+      [ngModel]="schematic?.version"
+      class="form-control"
+      title="Enter Schematic's associated Create Version (x.x.x)."
+      placeholder="Enter Schematic Create Version"
+      required
+      #length="ngModel"
+    />
+
+    <label for="creator">Creator:<span class="red">*</span></label>
+    <input
+      type="text"
+      id="creator"
+      name="creator"
+      [ngModel]="schematic?.creator"
+      class="form-control"
+      title="Enter the Schematic Creator."
+      placeholder="Enter Schematic Creator"
+      required
+      #creator="ngModel"
+    />
+
+    <label for="tags">Tags</label>
+    <textarea
+      id="tags"
+      name="tags"
+      [ngModel]="schematic?.tags"
+      class="form-control"
+      title="Enter any Schematic Tags (comma-separated). (Not required.)"
+      placeholder="Enter Schematic Tags (comma-separated)"
+      rows="3"
+      spellcheck="false"
+      #tags="ngModel"
+    ></textarea>
+
+    <button type="submit" class="btn btn-success m-2">Submit Details</button>
+    <button type="button" class="btn btn-primary m-2" (click)="onCancel()">
+      Cancel
+    </button>
+  </form>
+
+  <div *ngIf="isEditing === true" class="container">
+    <h2>Previous Schematic Details</h2>
+    <div *ngFor="let detail of schematic | keyvalue">
+      <p
+        *ngIf="
+          detail.key !== 'releaseVersion' &&
+            detail.key !== '__v' &&
+            detail.key !== '_id';
+          else releaseVersionRef
+        "
+      >
+        {{ detail.key }}: {{ detail.value }}
+      </p>
+      <ng-template #releaseVersionRef>
+        <p *ngIf="detail.key !== '__v' && detail.key !== '_id'">
+          {{ detail.key }}: {{ detail.value }}
+        </p>
+      </ng-template>
+    </div>
+  </div>
+</div>

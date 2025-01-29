@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Remove pesky Bootstrap z-index: */
+/* Remove pesky Bootstrap z-index:
 * {
   z-index: initial !important;
-}
+} */
 
 /* SVG image buttons are to be 55px X 55px max: */
 button:has(img) {
@@ -216,4 +216,9 @@ body {
 
 .red {
   color: red;
+}
+
+.schematic-img {
+  max-width: 40%;
+  max-height: 30%;
 }

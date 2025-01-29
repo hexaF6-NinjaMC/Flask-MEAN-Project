@@ -21,6 +21,9 @@ import { CookiesComponent } from './cookies/cookies.component';
 import { ModpacksComponent } from './modpacks/modpacks.component';
 import { ModpacksListComponent } from './modpacks/modpacks-list/modpacks-list.component';
 import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.component';
+import { SchematicsComponent } from './schematics/schematics.component';
+import { SchematicEditComponent } from './schematics/schematic-edit/schematic-edit.component';
+import { SchematicsListComponent } from './schematics/schematics-list/schematics-list.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.compo
     ModpacksComponent,
     ModpacksListComponent,
     ModpackEditComponent,
+    SchematicsComponent,
+    SchematicEditComponent,
+    SchematicsListComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [provideHttpClient()],

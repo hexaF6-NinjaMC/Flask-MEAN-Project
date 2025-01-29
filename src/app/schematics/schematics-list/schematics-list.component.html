@@ -1,0 +1,59 @@
+<div>
+  <div>
+    <div class="row">
+      <ul class="list-group p-reset">
+        <li *ngIf="!schematics.length">No schematics found.</li>
+        <li *ngFor="let schematic of schematics" class="list-group-item">
+          <div class="row flex-row">
+            <div class="float-start fw-bold fs-2 w-55">
+              {{ schematic.title }}
+              <div>
+                <img
+                  src="/assets/images/{{ schematic.img }}"
+                  class="schematic-img"
+                />
+              </div>
+            </div>
+            <a
+              href="/assets/schematics/{{ schematic.name }}"
+              class="list-group-item w-45 align-middle link-primary link-underline-opacity-100-hover"
+              title="Download {{ schematic.title }}"
+              download="{{ schematic.name }}"
+            >
+              {{ schematic.name }}
+            </a>
+            <div class="row flex-row">
+              <span class="float-start fst-italic m-reset">
+                {{ schematic.description }}
+              </span>
+              <div class="mt-3">
+                <h4>Schematic Version</h4>
+                <p class="badge text-bg-primary m-reset">
+                  {{ schematic.version }}
+                </p>
+              </div>
+              <div class="mt-3">
+                <h4>Create Release Version</h4>
+                <p class="badge text-bg-secondary m-reset">
+                  {{ schematic.releaseVersion }}
+                </p>
+              </div>
+              <div class="mt-3">
+                <h4>Tags</h4>
+                <div *ngFor="let tag of schematic.tags">
+                  <p class="badge text-bg-info m-reset">{{ tag }}</p>
+                </div>
+              </div>
+              <div class="mt-3">
+                <h4>Creator</h4>
+                <p>
+                  {{ schematic.creator }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
