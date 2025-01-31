@@ -3,7 +3,7 @@
     <div class="row scrollable-md">
       <ul class="list-group p-reset">
         <li *ngIf="!modpacks.length">No modpacks found.</li>
-        <li *ngFor="let modpack of modpacks.reverse()" class="list-group-item">
+        <li *ngFor="let modpack of modpacks" class="list-group-item">
           <div class="row flex-row">
             <div class="float-start fw-bold fs-2 w-55">
               {{ modpack.title }}

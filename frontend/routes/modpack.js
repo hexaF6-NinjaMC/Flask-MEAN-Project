@@ -7,7 +7,7 @@ modpacksRouter.get("/", (req, res) => {
   Modpack.find().then((results) => {
     res.json({
       message: "Retrieved schematic data",
-      modpackResults: results,
+      modpackResults: results.reverse(),
     });
   });
 });
