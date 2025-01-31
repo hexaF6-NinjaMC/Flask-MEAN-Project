@@ -77,6 +77,6 @@ export class SchematicEditComponent implements OnInit {
   }
 
   onCancel() {
-    void this.router.navigate(['../'], { relativeTo: this.route });
+    void this.router.navigate(['../../'], { relativeTo: this.route });
   }
 }

@@ -24,6 +24,7 @@ import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.compo
 import { SchematicsComponent } from './schematics/schematics.component';
 import { SchematicEditComponent } from './schematics/schematic-edit/schematic-edit.component';
 import { SchematicsListComponent } from './schematics/schematics-list/schematics-list.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { SchematicsListComponent } from './schematics/schematics-list/schematics
     SchematicsComponent,
     SchematicEditComponent,
     SchematicsListComponent,
+    PagenotfoundComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [provideHttpClient()],

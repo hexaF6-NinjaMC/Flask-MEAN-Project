@@ -15,6 +15,7 @@ import { ModpacksComponent } from './modpacks/modpacks.component';
 import { SchematicsComponent } from './schematics/schematics.component';
 // import { SchematicEditComponent } from './schematics/schematic-edit/schematic-edit.component';
 // import { ModpackEditComponent } from './modpacks/modpack-edit/modpack-edit.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
     //     path: 'new',
     //     component: ModpackEditComponent, // Allows editing of a specific Modpack
     //   },
+    //   {
+    //     path: ':id/edit',
+    //     component: ModpackEditComponent, // Allows editing of a specific Modpack
+    //   },
     // ],
   },
   {
@@ -75,7 +80,15 @@ const routes: Routes = [
     //     path: 'new',
     //     component: SchematicEditComponent, // Allows editing of a specific Schematic
     //   },
+    //   {
+    //     path: ':id/edit',
+    //     component: SchematicEditComponent, // Allows editing of a specific Schematic
+    //   },
     // ],
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent,
   },
 ];
 

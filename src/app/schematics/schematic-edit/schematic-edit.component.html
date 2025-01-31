@@ -1,6 +1,4 @@
-<div
-  class="new-schematic-form row flex-nowrap flex-row justify-content-between"
->
+<div class="row mt-2">
   <form #schematicForm="ngForm" (ngSubmit)="onSubmit(schematicForm)">
     <div class="col-10">
       <h4>Please input Schematic details.</h4>
@@ -153,7 +151,10 @@
         {{ detail.key }}: {{ detail.value }}
       </p>
       <ng-template #releaseVersionRef>
-        <p *ngIf="detail.key !== '__v' && detail.key !== '_id'">
+        <p
+          class="pre-wrap"
+          *ngIf="detail.key !== '__v' && detail.key !== '_id'"
+        >
           {{ detail.key }}: {{ detail.value }}
         </p>
       </ng-template>

@@ -8,6 +8,20 @@ const __dirname = path.resolve(path.dirname(__filename), "../../");
 
 const emailRouter = express.Router();
 
+const escapeHTML = (unsafe) => {
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    $: "&#036",
+    "'": "&#039;",
+    "(": "&#040;",
+    ")": "&#041;",
+  };
+  return unsafe.replaceAll(/[&<>"']/g, (m) => map[m]);
+};
+
 emailRouter.get("/", (req, res) => {
   res.sendFile(
     path.join(__dirname, "/dist/ng-video-jokebot/browser/index.html"),
@@ -41,11 +55,13 @@ emailRouter.post("/", (req, res) => {
   // console.log("Request Body:", req.body);
 
   const mailOptions = {
-    from: `"${req.body.sender}" <${req.body.senderEmail}>`,
+    from: `"${escapeHTML(req.body.sender.trim())}" <${escapeHTML(req.body.senderEmail.trim())}>`,
     to: process.env.EMAIL_USER,
-    subject: `GAMING.FSIXNINJA - Contact message from: ${req.body.sender}`,
-    text: `INQUIRER EMAIL: ${req.body.senderEmail}\nINQUIRER PHONE: ${req.body.senderPhone}\n\nMESSAGE:\n${req.body.message}`,
+    subject: `GAMING.FSIXNINJA - Contact message from: ${escapeHTML(req.body.sender.trim())}`,
+    text: `INQUIRER EMAIL: ${escapeHTML(req.body.senderEmail.trim())}\nINQUIRER PHONE: ${escapeHTML(req.body.senderPhone.trim())}\n\nMESSAGE:\n${escapeHTML(req.body.message.trim())}`,
   };
+
+  console.log(mailOptions);
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {

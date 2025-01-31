@@ -36,7 +36,7 @@ modpacksRouter.get("/", (req, res) => {
 
 // modpacksRouter.put("/:id", (req, res) => {
 //   const id = req.params.id;
-//   Video.findByIdAndUpdate(id, req.body, { new: true })
+//   Modpack.findByIdAndUpdate(id, req.body, { new: true })
 //     .then(() => {
 //       res.status(200).json({
 //         message: "Video updated successfully",
@@ -50,9 +50,9 @@ modpacksRouter.get("/", (req, res) => {
 //     });
 // });
 
-// videosRouter.delete("/:id", (req, res) => {
+// modpacksRouter.delete("/:id", (req, res) => {
 //   const id = req.params.id;
-//   Video.findByIdAndDelete(id)
+//   Modpack.findByIdAndDelete(id)
 //     .then(() => {
 //       res.status(200).json({
 //         message: "Video deleted successfully",

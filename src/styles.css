@@ -222,3 +222,7 @@ body {
   max-width: 40%;
   max-height: 30%;
 }
+
+.pre-wrap {
+  white-space: pre-wrap;
+}

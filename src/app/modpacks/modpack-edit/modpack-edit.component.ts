@@ -74,6 +74,6 @@ export class ModpackEditComponent {
   }
 
   onCancel() {
-    void this.router.navigate(['../'], { relativeTo: this.route });
+    void this.router.navigate(['../../'], { relativeTo: this.route });
   }
 }

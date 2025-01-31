@@ -3,7 +3,7 @@
     <div class="row scrollable-md">
       <ul class="list-group p-reset">
         <li *ngIf="!modpacks.length">No modpacks found.</li>
-        <li *ngFor="let modpack of modpacks" class="list-group-item">
+        <li *ngFor="let modpack of modpacks.reverse()" class="list-group-item">
           <div class="row flex-row">
             <div class="float-start fw-bold fs-2 w-55">
               {{ modpack.title }}
@@ -17,7 +17,7 @@
               {{ modpack.name }}
             </a>
             <div class="row flex-row">
-              <span class="float-start fst-italic">
+              <span class="float-start fst-italic pre-wrap">
                 {{ modpack.description }}
               </span>
               <table>
@@ -38,6 +38,13 @@
                   </tr>
                 </tbody>
               </table>
+              <!-- <div class="d-flex flex-row justify-content-around">
+                <a
+                  class="btn btn-primary m-1"
+                  [routerLink]="[modpack._id, 'edit']"
+                  >Edit</a
+                >
+              </div> -->
             </div>
           </div>
         </li>
