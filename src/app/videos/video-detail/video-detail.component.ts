@@ -4,9 +4,10 @@ import { VideoService } from '../video.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'video-jokebot-video-detail',
-  templateUrl: './video-detail.component.html',
-  styleUrl: './video-detail.component.css',
+    selector: 'video-jokebot-video-detail',
+    templateUrl: './video-detail.component.html',
+    styleUrl: './video-detail.component.css',
+    standalone: false
 })
 export class VideoDetailComponent {
   video: Video | undefined;

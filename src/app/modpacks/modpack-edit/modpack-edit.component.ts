@@ -10,9 +10,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'video-jokebot-modpack-edit',
-  templateUrl: './modpack-edit.component.html',
-  styleUrl: './modpack-edit.component.css',
+    selector: 'video-jokebot-modpack-edit',
+    templateUrl: './modpack-edit.component.html',
+    styleUrl: './modpack-edit.component.css',
+    standalone: false
 })
 export class ModpackEditComponent {
   modpack: Modpack | undefined;

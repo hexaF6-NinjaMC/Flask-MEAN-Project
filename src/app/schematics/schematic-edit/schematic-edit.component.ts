@@ -9,9 +9,10 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
-  selector: 'video-jokebot-schematic-edit',
-  templateUrl: './schematic-edit.component.html',
-  styleUrl: './schematic-edit.component.css',
+    selector: 'video-jokebot-schematic-edit',
+    templateUrl: './schematic-edit.component.html',
+    styleUrl: './schematic-edit.component.css',
+    standalone: false
 })
 export class SchematicEditComponent implements OnInit {
   schematic: Schematic | undefined;

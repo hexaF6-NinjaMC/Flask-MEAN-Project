@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'video-jokebot-video-comments',
-  templateUrl: './video-comments.component.html',
-  styleUrl: './video-comments.component.css',
+    selector: 'video-jokebot-video-comments',
+    templateUrl: './video-comments.component.html',
+    styleUrl: './video-comments.component.css',
+    standalone: false
 })
 export class VideoCommentsComponent {}
