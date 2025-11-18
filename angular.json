@@ -99,7 +99,10 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css"],
-            "scripts": ["src/assets/chatbox.js"]
+            "scripts": [
+              "src/assets/chatbot.js"
+            ],
+            "karmaConfig": "karma.conf.js"
           }
         },
         "deploy": {

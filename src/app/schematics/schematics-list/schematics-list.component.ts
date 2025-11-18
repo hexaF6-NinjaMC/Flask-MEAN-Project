@@ -10,10 +10,10 @@ import { Subscription } from 'rxjs';
 import { SchematicsService } from '../schematics.service';
 
 @Component({
-    selector: 'video-jokebot-schematics-list',
-    templateUrl: './schematics-list.component.html',
-    styleUrl: './schematics-list.component.css',
-    standalone: false
+  selector: 'video-jokebot-schematics-list',
+  templateUrl: './schematics-list.component.html',
+  styleUrl: './schematics-list.component.css',
+  standalone: false,
 })
 export class SchematicsListComponent implements OnInit, OnDestroy {
   @Output() selectedSchematicEvent = new EventEmitter<void>();

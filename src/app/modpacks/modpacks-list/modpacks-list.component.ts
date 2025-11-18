@@ -10,10 +10,10 @@ import { Subscription } from 'rxjs';
 import { ModpackService } from '../modpack.service';
 
 @Component({
-    selector: 'video-jokebot-modpacks-list',
-    templateUrl: './modpacks-list.component.html',
-    styleUrl: './modpacks-list.component.css',
-    standalone: false
+  selector: 'video-jokebot-modpacks-list',
+  templateUrl: './modpacks-list.component.html',
+  styleUrl: './modpacks-list.component.css',
+  standalone: false,
 })
 export class ModpacksListComponent implements OnInit, OnDestroy {
   @Output() selectedModpackEvent = new EventEmitter<void>();

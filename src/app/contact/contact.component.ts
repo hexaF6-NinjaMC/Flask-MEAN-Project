@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SendEmailService } from './send-email.service';
 
 @Component({
-    selector: 'video-jokebot-contact',
-    templateUrl: './contact.component.html',
-    styleUrl: './contact.component.css',
-    standalone: false
+  selector: 'video-jokebot-contact',
+  templateUrl: './contact.component.html',
+  styleUrl: './contact.component.css',
+  standalone: false,
 })
 export class ContactComponent {
   constructor(

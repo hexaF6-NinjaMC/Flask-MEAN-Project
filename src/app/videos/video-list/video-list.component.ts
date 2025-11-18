@@ -10,10 +10,10 @@ import { Subscription } from 'rxjs';
 import { VideoService } from '../video.service';
 
 @Component({
-    selector: 'video-jokebot-video-list',
-    templateUrl: './video-list.component.html',
-    styleUrl: './video-list.component.css',
-    standalone: false
+  selector: 'video-jokebot-video-list',
+  templateUrl: './video-list.component.html',
+  styleUrl: './video-list.component.css',
+  standalone: false,
 })
 export class VideoListComponent implements OnInit, OnDestroy {
   @Output() selectedVideoEvent = new EventEmitter<void>();

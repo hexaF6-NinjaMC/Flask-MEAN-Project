@@ -10,10 +10,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 // import { DatePipe } from '@angular/common'; // Use when project is more fleshed out?
 
 @Component({
-    selector: 'video-jokebot-video-edit',
-    templateUrl: './video-edit.component.html',
-    styleUrl: './video-edit.component.css',
-    standalone: false
+  selector: 'video-jokebot-video-edit',
+  templateUrl: './video-edit.component.html',
+  styleUrl: './video-edit.component.css',
+  standalone: false,
 })
 export class VideoEditComponent implements OnInit {
   video: Video | undefined;

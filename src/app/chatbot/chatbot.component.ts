@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'video-jokebot-chatbot',
-    templateUrl: './chatbot.component.html',
-    styleUrl: './chatbot.component.css',
-    standalone: false
+  selector: 'video-jokebot-chatbot',
+  templateUrl: './chatbot.component.html',
+  styleUrl: './chatbot.component.css',
+  standalone: false,
 })
 export class ChatbotComponent {
   chatbotScriptElement: HTMLScriptElement;
