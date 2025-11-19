@@ -4,3 +4,4 @@ assets
 server.js
 frontend
 *.spec.ts
+karma.conf.js

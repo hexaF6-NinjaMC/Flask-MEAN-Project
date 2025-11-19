@@ -7,17 +7,30 @@
       <div class="chatbox-content-header">
         <h4 class="chatbox-heading-header">Chat support</h4>
         <p class="chatbox-description-header">
-          Hi. My name is Algee. How can I help you?
+          Hi. My name is Algee.
+          @if (health) {
+            How can I help you?
+          } @else {
+            I'm currently unavailable.
+          }
         </p>
       </div>
     </div>
-    <div class="chatbox-messages" tabindex="0">
-      <div class="chatbox-content"></div>
-    </div>
-    <div class="chatbox-footer">
-      <input name="message" type="text" placeholder="Write a message..." />
-      <button class="chatbox-send-footer send-button">Send</button>
-    </div>
+    @if (health) {
+      <div class="chatbox-messages" tabindex="0">
+        <div class="chatbox-content"></div>
+      </div>
+      <div class="chatbox-footer">
+        <input name="message" type="text" placeholder="Write a message..." />
+        <button class="chatbox-send-footer send-button">Send</button>
+      </div>
+    } @else {
+      <div class="chatbox-messages" tabindex="0">
+        <div class="chatbox-content">
+          <p>The AI chatbot is currently disabled.</p>
+        </div>
+      </div>
+    }
   </div>
   <div class="chatbox-button">
     <button class="glowing" tabindex="0">
