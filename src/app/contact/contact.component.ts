@@ -28,7 +28,7 @@ export class ContactComponent {
 
     this.emailService.sendEmail(name, email, phone, message);
 
-    alert(`Thank you, ${name}! Your message has been sent.`);
+    alert(`Thank you, ${name}! Your message is being processed.`);
     this.onCancel();
   }
 
